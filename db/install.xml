@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/ratemodule/db" VERSION="20211019" COMMENT="XMLDB file for Moodle blocks/ratemodule"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="block_ratemodule" COMMENT="Stores the users ratings for modules">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="rating" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="coursemoduleid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+            <INDEXES>
+                <INDEX NAME="ix_unique_rating" UNIQUE="true" FIELDS="coursemoduleid, userid"/>
+            </INDEXES>
+        </TABLE>
+    </TABLES>
+</XMLDB>

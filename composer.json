@@ -1,0 +1,18 @@
+{
+    "name": "luisspotti/moodle-block_ratemodule",
+    "description": "A block template for Moodle based on http://docs.moodle.org/dev/Blocks",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Luis Spotti",
+            "email": "luisspottiflw@gmail.com"
+        }
+    ],
+    "type": "moodle-block",
+    "require": {
+      "composer/installers": "~1.0"
+    },
+    "extra": {
+      "installer-name": "ratemodule"
+    }
+}
