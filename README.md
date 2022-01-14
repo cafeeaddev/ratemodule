@@ -26,29 +26,44 @@ Originally written by Café EAD
 ## Adding the Block to the Course
 
 1 - Create a course in Moodle
+
 2 - Enter the course you want to use the block
+
 3 - Activate editing
+
 4 - Click on add a block
+
 5 - Choose the Ratemodule block
 
 
 ## Configuring the block to appear only within activities
 
 1 - Check if editing is active in the course
+
 2 - In the block click on the gear
+
 3 - Click Configure Ratemodule
+
 4 - Change the display in page types to any page in the course
+
 5 - In the topic On This Page, change the option Visible to no
+
 6- Click on save changes
 
 ## Testing in an example page activity
 
 1 - Activate course editing
+
 2 - Click on Add an activity or resource
+
 3 - School Activity Page
+
 4 - Put the mandatory fields of your choice
+
 5 - After configuring click on save and return to the course
+
 6 - Enter the activity created and add the Ratemodule
+
 
 This block was created so that the student does not change his choice and the data is recorded in the mdl_block_ratemodule database table to be used in a future version as reports for the administrator.
 
