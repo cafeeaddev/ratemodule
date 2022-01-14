@@ -74,8 +74,7 @@ class rating_form extends moodleform {
         }
         $mform->addElement('hidden', 'user', $USER->id);
         $mform->addElement('hidden', 'cmid', $cmid);
-        $mform->addElement('html', '<a class="report" id="suporte"><span></span>Reporte um erro</a>');
-        
+         
         $mform->addElement('html', '</div>');
         $mform->disable_form_change_checker();
     }
