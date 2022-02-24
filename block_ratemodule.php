@@ -1,25 +1,8 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Ratemodule block caps.
  *
  * @package    block_ratemodule
- * @copyright  Daniel Neis <danielneis@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -34,6 +17,7 @@ class block_ratemodule extends block_base {
         global $CFG, $OUTPUT, $USER, $PAGE, $DB;
         $cmid = optional_param('id', null, PARAM_INT);
         if (!$cmid) {
+            //For some Moodle pages where id is represented as cmid
             $cmid = optional_param('cmid', null, PARAM_INT);
         }
 
@@ -54,6 +38,10 @@ class block_ratemodule extends block_base {
         // user/index.php expect course context, so get one if page has module context.
         $currentcontext = $this->page->context->get_course_context(false);
 
+        //$CFG->cachejs = false;
+        //$PAGE->requires->js('path/to/plugin/javascript/jquery-1.4.2.min.js');
+        //$PAGE->requires->jquery();
+
         $this->content = '';
         if (empty($currentcontext)) {
             return $this->content;
@@ -62,10 +50,13 @@ class block_ratemodule extends block_base {
         if (!$cmid) {
             return null;
         }
+        
         $table = 'block_ratemodule';
+        //Checks if the user already rated the activity
         $exRating = $DB->get_record($table, array("userid"=>$USER->id, "coursemoduleid"=>$cmid));
 
         require_once('rating_form.php');
+        //Creates the form used to rate the activity
         $mform = new rating_form($PAGE->url->out(false), $exRating);
 
         //Form processing and displaying is done here
@@ -84,9 +75,7 @@ class block_ratemodule extends block_base {
                 $record->userid = intval($user);
                 $record->coursemoduleid = intval($cmid);
 
-
-                //var_dump($record);
-
+                //Inserts the rating in the database
                 $DB->insert_record($table, $record);
 
                 $exRating = $DB->get_record($table, array("userid"=>$USER->id, "coursemoduleid"=>$cmid));
@@ -98,14 +87,13 @@ class block_ratemodule extends block_base {
         return $this->content;
     }
 
-    // my moodle can only have SITEID and it's redundant here, so take it away
     public function applicable_formats() {
         return array('all' => false,
                      'site' => true,
                      'site-index' => true,
-                     'course-view' => true, 
+                     'course-view' => true,
                      'course-view-social' => false,
-                     'mod' => true, 
+                     'mod' => true,
                      'mod-quiz' => false);
     }
 
@@ -116,7 +104,6 @@ class block_ratemodule extends block_base {
     function has_config() {return true;}
 
     public function cron() {
-        mtrace( "Hey, my cron script is running" );
         return true;
     }
 

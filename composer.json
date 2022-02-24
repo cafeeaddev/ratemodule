@@ -1,6 +1,6 @@
 {
     "name": "luisspotti/moodle-block_ratemodule",
-    "description": "A block template for Moodle based on http://docs.moodle.org/dev/Blocks",
+    "description": "A block plugin that allows students to rate activities",
     "license": "GPLv3",
     "authors": [
         {
