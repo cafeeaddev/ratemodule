@@ -9,7 +9,7 @@ coursemoduleid - id of the course module in which the block was inserted
 userid - id of the user who is evaluating
 timecreated - evaluation date
 
-Attention: In this version of the block we do not have an administrative area of reports, it will be available in the next version.
+Attention: In this version of the block we have added to the admin profile to be able to see a complete report of the stars given by the students. We are improving this report for an upcoming release.
 
 ## Contributions
 
@@ -44,7 +44,7 @@ Originally written by Café EAD
 
 3 - Click Configure Ratemodule
 
-4 - Change the display in page types to any page in the course
+4 - Change the display in Any page
 
 5 - In the topic On This Page, change the option Visible to no
 
@@ -78,5 +78,5 @@ There are three areas that should be backed up before any upgrade:
 * Moodle database (For example, your Postgres or MySQL database dump)
 
 
-#### block 1.0 ####
+#### block 1.2 ####
 You can only upgrade from Moodle 3.9 or later.
