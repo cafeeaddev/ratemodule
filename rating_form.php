@@ -70,7 +70,7 @@ class rating_form extends moodleform {
         $mform->addElement('html', '</div>');
         $systemcontext = context_system::instance();
         if(has_capability('moodle/site:config', $systemcontext)) {
-            $mform->addElement('html', '<div style="background: #dbdbdb; text-align: center;"><a href="'.$CFG->wwwroot.'/blocks/ratemodule/report.php">Report</a></div>');
+            $mform->addElement('html', '<div style="background: #dbdbdb; text-align: center;"><a href="'.$CFG->wwwroot.'/blocks/ratemodule/report">Report</a></div>');
         }
         //If activity has already been rated, disables editing on the form
         $mform->disable_form_change_checker();
